@@ -16,15 +16,19 @@ public class MainController {
         return "logowanie";
     }
 
-    @RequestMapping("/rejestracja")
-    public String rejestracja(){
-        return "rejestracja";
-    }
+//    @RequestMapping("/rejestracja")
+//    public String rejestracja(){
+//        return "rejestracja";
+//    }
 
     @RequestMapping("/profil")
     public String profil(){
         return "profil";
     }
 
+    @RequestMapping("/bonus")
+    public String rejestracja(){
+        return "bonus";
+    }
 
 }
