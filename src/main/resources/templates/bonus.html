@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="pl">
 
   <head>
 
@@ -59,40 +59,7 @@
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h1 class="text-uppercase">
-            <strong>REJESTRACJA</strong>
-            </h1>
-            <form method="post" th:action="@{/rejestracja}" class="registerForm"
-                  th:object="${registerForm}">
-              <input type="text" th:field="*{email}" placeholder="E-mail...">
-              <span class="error" th:errors="*{email}"></span>
-              <input type="password" th:field="*{pass}" placeholder="Hasło...">
-              <span class="error" th:errors="*{pass}"></span>
-              <input type="password" th:field="*{passRepeat}" placeholder="Powtórz hasło...">
-              <span class="error" th:errors="*{passRepeat}"></span>
-              <input type="text" th:field="*{firstName}" placeholder="Imię...">
-              <span class="error" th:errors="*{firstName}"></span>
-              <input type="text" th:field="*{lastName}" placeholder="Nazwisko...">
-              <span class="error" th:errors="*{lastName}"></span>
-              <input type="submit" value="Zarejestruj">
-            </form>
-            <hr>
-          </div>
-          <div class="col-lg-8 mx-auto">
-            <form method="post" th:action="@{/rejestracja}" class="registerForm"
-                  th:object="${registerForm}">
-              <input type="text" th:field="*{email}" placeholder="E-mail...">
-              <span class="error" th:errors="*{email}"></span>
-              <input type="password" th:field="*{pass}" placeholder="Hasło...">
-              <span class="error" th:errors="*{pass}"></span>
-              <input type="password" th:field="*{passRepeat}" placeholder="Powtórz hasło...">
-              <span class="error" th:errors="*{passRepeat}"></span>
-              <input type="text" th:field="*{firstName}" placeholder="Imię...">
-              <span class="error" th:errors="*{firstName}"></span>
-              <input type="text" th:field="*{lastName}" placeholder="Nazwisko...">
-              <span class="error" th:errors="*{lastName}"></span>
-              <input type="submit" value="Zarejestruj">
-            </form>
+            <a class="portfolio-box" href="../img/hobby.jpg">
           </div>
         </div>
       </div>
