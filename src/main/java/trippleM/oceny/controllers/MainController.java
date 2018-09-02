@@ -11,11 +11,6 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/logowanie")
-    public String logowanie(){
-        return "logowanie";
-    }
-
 //    @RequestMapping("/rejestracja")
 //    public String rejestracja(){
 //        return "rejestracja";
