@@ -44,4 +44,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder);
     }
+
+
+    protected void logout(HttpSecurity http) throws Exception {
+        http.logout().defaultLogoutSuccessHandlerFor("logout",  "logout");
+    }
 }

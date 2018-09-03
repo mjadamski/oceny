@@ -22,7 +22,7 @@ public class RegisterForm {
     @NotBlank@NotEmpty
     private String lastName;
     @NotBlank@NotEmpty
-    private String phoneNummber;
+    private String phoneNumber;
     @NotBlank@NotEmpty
     private String gitHub;
 }

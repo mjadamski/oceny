@@ -28,8 +28,9 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @RequestMapping("/rejestracja")
-    public String rejestracja(){
+    @GetMapping("/rejestracja")
+    public String rejestracja(Model model, RegisterForm registerForm){
+        model.addAttribute("registerForm", registerForm);
         return "rejestracja";
     }
 
@@ -39,13 +40,13 @@ public class UserController {
             BindingResult bindingResult,
             Model model){
 
-        if(registerForm.getPass() == null
-                || !registerForm.getPass().equals(registerForm.getPassRepeat())){
-            bindingResult.rejectValue("pass", "123",
-                    "Hasła muszą być takie same");
-            bindingResult.rejectValue("passRepeat", "123",
-                    "Hasła muszą być takie same");
-        }
+//        if(registerForm.getPass() == null
+//                || !registerForm.getPass().equals(registerForm.getPassRepeat())){
+//            bindingResult.rejectValue("pass", "123",
+//                    "Hasła muszą być takie same");
+//            bindingResult.rejectValue("passRepeat", "123",
+//                    "Hasła muszą być takie same");
+//        }
 //        if(!registerForm.getEmail().contains("@")){
 //            model.addAttribute("emailError", "Błędny email");
 //        }
@@ -72,7 +73,7 @@ public class UserController {
         user.setAdded(new Date());
         user.setActive(Boolean.TRUE);
         user.setGitHub(registerForm.getGitHub());
-        user.setPhoneNummber(registerForm.getPhoneNummber());
+        user.setPhoneNummber(registerForm.getPhoneNumber());
 
         user.setPassword(bCryptPasswordEncoder.encode(registerForm.getPass()));
 
