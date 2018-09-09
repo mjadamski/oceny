@@ -6,6 +6,6 @@ import trippleM.oceny.entities.User;
 import java.util.List;
 
 public interface UserRepo extends JpaRepository<User, Long> {
-
-    List<User> findAllByEmail (String email);
+    List<User> findAllByEmail(String email);
+    User findOneByEmail(String email);
 }

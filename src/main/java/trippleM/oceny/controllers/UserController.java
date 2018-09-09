@@ -1,6 +1,9 @@
 package trippleM.oceny.controllers;
 
+//import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +19,12 @@ import trippleM.oceny.repositories.UserRepo;
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UserController {
 
     private UserRepo userRepository;
-
 
     @Autowired
     public UserController(UserRepo userRepository) {
@@ -83,12 +86,7 @@ public class UserController {
     }
 
     @GetMapping("/logowanie")
-    public String loginForm(){
-
-
-
-        return "logowanie";
-    }
+    public String loginForm(){ return "logowanie"; }
 
     @GetMapping("/panel_administratora")
     public String adminPanel(){ return "admin_panel"; }
@@ -105,10 +103,13 @@ public class UserController {
     @GetMapping("/zapis")
     public String save(){ return "good_job"; }
 
-//    @RequestMapping ("/logowanie");
-//    public String showPass(){
-////        if
-//        return "logowanie";}
+    @RequestMapping ("/profil")
+    public String profilFill(Model model, Authentication auth) {
+            UserDetails userDetails = (UserDetails) auth.getPrincipal();
+            User loggedUser = userRepository.findOneByEmail(userDetails.getUsername());
+//        List<User> users = userRepository.findAll();
+            model.addAttribute("usersModel", loggedUser);
+        return "profil";}
 
 }
 

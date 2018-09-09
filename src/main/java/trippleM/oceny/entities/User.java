@@ -31,9 +31,9 @@ public class User {
     private int markTwo;
     private int markThree;
     //oceny opisowo
-    private int markOneDesc;
-    private int markTwooeDesc;
-    private int markThreeDesc;
+    private String markOneDesc;
+    private String markTwooeDesc;
+    private String markThreeDesc;
     private Date added;
 
     @Column(name = "enabled")

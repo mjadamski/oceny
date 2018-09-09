@@ -20,10 +20,10 @@ public class MainController {
 //        return "rejestracja";
 //    }
 
-    @RequestMapping("/profil")
-    public String profil(){
-        return "profil";
-    }
+//    @RequestMapping("/profil")
+//    public String profil(){
+//        return "profil";
+//    }
 
     @RequestMapping("/bonus")
     public String bonus(){
