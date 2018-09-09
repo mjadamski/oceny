@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="pl">
 
   <head>
 
@@ -50,6 +50,9 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/profil">Profil</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/logout">Wyloguj</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -60,17 +63,15 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
-            <strong>Błąd</strong>
+            <strong>Panel kerownika</strong>
             </h1>
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Przepraszamy, coś poszło nie tak</p>
-            <p class="text-faded mb-5" th:text="${errorCode}">tu może wyświetlać się sugestia czego dotyczy błąd</p>
-            <!--<p class="text-faded mb-5" th:text="${errorMessage}">tu może wyświetlać się sugestia czego dotyczy błąd</p>-->
-            <!--<p class="text-faded mb-5" th:text="${errorException}">tu może wyświetlać się sugestia czego dotyczy błąd</p>-->
-            <!--<p class="text-faded mb-5" th:text="${errorExceptionType}">tu może wyświetlać się sugestia czego dotyczy błąd</p>-->
-
+            <p class="text-faded mb-5">Aktywuj użytkowników, wpisuj oceny</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/oceny">Oceny</a>
+            <hr>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/bonus">Bonus</a>
           </div>
         </div>
       </div>

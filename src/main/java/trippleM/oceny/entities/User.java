@@ -31,9 +31,9 @@ public class User {
     private int markTwo;
     private int markThree;
     //oceny opisowo
-    private int markOneDes;
-    private int markTwooeDes;
-    private int markThreeDes;
+    private int markOneDesc;
+    private int markTwooeDesc;
+    private int markThreeDesc;
 
 
 

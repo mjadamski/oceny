@@ -50,6 +50,9 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/profil">Profil</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/logout">Wyloguj</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -62,21 +65,27 @@
             <h1 class="text-uppercase">
             <strong>REJESTRACJA</strong>
             </h1>
+            <div class="col-lg-8 mx-auto">
+              <p class="text-faded mb-5">Jeżeli chcesz zobaczyć jakie masz oceny,</p>
+              <p class="text-faded mb-5">to prośba do Ciebie o zarejestrowanie</p>
+              <!--<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
+            </div>
             <form method="post" th:action="@{/rejestracja}"  th:object="${registerForm}">
               <input type="text" th:field="*{email}" placeholder="E-mail...">
-              <span class="error" th:errors="*{email}"></span>
+              <span class="error" th:errors="*{email}"></span></br>
               <input type="password" th:field="*{pass}" placeholder="Hasło...">
-              <span class="error" th:errors="*{pass}"></span>
+              <span class="error" th:errors="*{pass}"></span></br>
               <input type="password" th:field="*{passRepeat}" placeholder="Powtórz hasło...">
-              <span class="error" th:errors="*{passRepeat}"></span>
+              <span class="error" th:errors="*{passRepeat}"></span></br>
               <input type="text" th:field="*{firstName}" placeholder="Imię...">
-              <span class="error" th:errors="*{firstName}"></span>
+              <span class="error" th:errors="*{firstName}"></span></br>
               <input type="text" th:field="*{lastName}" placeholder="Nazwisko...">
-              <span class="error" th:errors="*{lastName}"></span>
+              <span class="error" th:errors="*{lastName}"></span></br>
               <input type="text" th:field="*{gitHub}" placeholder="login GitHub">
-              <span class="error" th:errors="*{gitHub}"></span>
+              <span class="error" th:errors="*{gitHub}"></span></br>
               <input type="text" th:field="*{phoneNumber}" placeholder="Telefon kontaktowy">
-              <span class="error" th:errors="*{phoneNumber}"></span>
+              <span class="error" th:errors="*{phoneNumber}"></span></br>
+              <hr>
               <input type="submit" value="Zarejestruj">
             </form>
             <hr>

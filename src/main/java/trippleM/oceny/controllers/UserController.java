@@ -40,13 +40,13 @@ public class UserController {
             BindingResult bindingResult,
             Model model){
 
-//        if(registerForm.getPass() == null
-//                || !registerForm.getPass().equals(registerForm.getPassRepeat())){
-//            bindingResult.rejectValue("pass", "123",
-//                    "Hasła muszą być takie same");
-//            bindingResult.rejectValue("passRepeat", "123",
-//                    "Hasła muszą być takie same");
-//        }
+        if(registerForm.getPass() == null
+                || !registerForm.getPass().equals(registerForm.getPassRepeat())){
+            bindingResult.rejectValue("pass", "123",
+                    "Hasła muszą być takie same");
+            bindingResult.rejectValue("passRepeat", "123",
+                    "Hasła muszą być takie same");
+        }
 //        if(!registerForm.getEmail().contains("@")){
 //            model.addAttribute("emailError", "Błędny email");
 //        }
@@ -83,9 +83,22 @@ public class UserController {
     }
 
     @GetMapping("/logowanie")
-    public String loginForm(){
+    public String loginForm(){ return "logowanie";    }
 
-        return "logowanie";
-    }
+    @GetMapping("/panel_administratora")
+    public String adminPanel(){ return "admin_panel"; }
+
+    @GetMapping("/oceny")
+    public String marks(){ return "wpisywanie_ocen"; }
+
+    @GetMapping("/zmiana_danych")
+    public String changePersonalData(){ return "zmiana_danych"; }
+
+    @GetMapping("/logut")
+    public String logout(){ return "logout"; }
+
+    @GetMapping("/zapis")
+    public String save(){ return "good_job"; }
+
 }
 

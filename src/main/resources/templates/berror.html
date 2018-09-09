@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
 
   <head>
 
@@ -63,14 +63,17 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
-            <strong>TrippleM prezentuje stronę z ocenami Reaktora PWN</strong>
+            <strong>Błąd</strong>
             </h1>
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">TrippleM - Monika, Maeusz i Michał</p>
-            <p class="text-faded mb-5">to nasza wersja softu do ocen</p>
-            <!--<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
+            <p class="text-faded mb-5">Przepraszamy, coś poszło nie tak</p>
+            <p class="text-faded mb-5" th:text="${errorCode}">tu może wyświetlać się sugestia czego dotyczy błąd</p>
+            <!--<p class="text-faded mb-5" th:text="${errorMessage}">tu może wyświetlać się sugestia czego dotyczy błąd</p>-->
+            <!--<p class="text-faded mb-5" th:text="${errorException}">tu może wyświetlać się sugestia czego dotyczy błąd</p>-->
+            <!--<p class="text-faded mb-5" th:text="${errorExceptionType}">tu może wyświetlać się sugestia czego dotyczy błąd</p>-->
+
           </div>
         </div>
       </div>
