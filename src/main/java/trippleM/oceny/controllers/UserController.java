@@ -99,8 +99,8 @@ public class UserController {
     @GetMapping("/zmiana_danych")
     public String changePersonalData(){ return "zmiana_danych"; }
 
-    @GetMapping("/logut")
-    public String logout(){ return "logout"; }
+//    @GetMapping("/logut")
+//    public String logout(){ return "logout"; }
 
     @GetMapping("/zapis")
     public String save(){ return "good_job"; }

@@ -28,12 +28,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and().csrf().disable()
                 .formLogin()
-                .loginPage("/login_temp")
+                .loginPage("/logowanie")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .loginProcessingUrl("/login-process")
-                .failureUrl("/user/login?error")
-                .defaultSuccessUrl("/profile");
+                .failureUrl("/logowanie?error")
+                .defaultSuccessUrl("/profil");
     }
 
     @Override
@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .usersByUsernameQuery(
                         "SELECT email, password, enabled FROM user WHERE email = ?")
-                .authoritiesByUsernameQuery("SELECT email, role FROM user WHERE email = ?")
+                .authoritiesByUsernameQuery("SELECT email, role_name FROM user WHERE email = ?")
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder);
     }
