@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .loginProcessingUrl("/login-process")
-//                .failureUrl("/user/login?error")
+                .failureUrl("/user/login?error")
                 .defaultSuccessUrl("/profile");
     }
 
