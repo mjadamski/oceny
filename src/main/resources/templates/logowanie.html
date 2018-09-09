@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
 
   <head>
 
@@ -71,10 +71,23 @@
           <!--<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
         </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">podaj adres e-mail</p>
-            <p class="text-faded mb-5">e-mail</p>
-            <p class="text-faded mb-5">pass</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+            <form method="post" th:action="@{/login-process}" >
+              <p>
+              <input type="text" name="username" placeholder="Nazwa użytkownika...">
+              </p>
+              <p class="col-lg-8 mx-auto">
+              <input type="password" name="password" placeholder="Podaj hasło...">
+              <input type="text" name="password_show" placeholder="Podaj hasło...">
+              </p>
+              <p class="col-lg-8 mx-auto">
+              <input type="checkbox" name="show_pass"> Pokaż hasło
+              </p>
+              <p class="col-lg-8 mx-auto">
+              <button type="submit" class="btn btn-primary btn-xl js-scroll-trigger" >Zaloguj</button>
+              </p>
+
+
+            </form>
           </div>
         </div>
       </div>

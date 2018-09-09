@@ -34,14 +34,13 @@ public class User {
     private int markOneDesc;
     private int markTwooeDesc;
     private int markThreeDesc;
-
-
-
-
     private Date added;
 
     @Column(name = "enabled")
     private Boolean active;
+
+    @Column(columnDefinition = "VARCHAR(10) default 'ROLE_USER'")
+    private String roleName;
 
 
 }

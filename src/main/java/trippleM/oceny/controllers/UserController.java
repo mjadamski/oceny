@@ -83,7 +83,12 @@ public class UserController {
     }
 
     @GetMapping("/logowanie")
-    public String loginForm(){ return "logowanie";    }
+    public String loginForm(){
+
+
+
+        return "logowanie";
+    }
 
     @GetMapping("/panel_administratora")
     public String adminPanel(){ return "admin_panel"; }
@@ -99,6 +104,11 @@ public class UserController {
 
     @GetMapping("/zapis")
     public String save(){ return "good_job"; }
+
+//    @RequestMapping ("/logowanie");
+//    public String showPass(){
+////        if
+//        return "logowanie";}
 
 }
 
