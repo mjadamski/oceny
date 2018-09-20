@@ -18,20 +18,20 @@ public class ChangeDataForm {
     private String firstName;
     @NotBlank@NotEmpty
     private String lastName;
-    @NotBlank@NotEmpty
+    @NotBlank
     private String phoneNumber;
-    @NotBlank@NotEmpty
+    @NotBlank
     private String gitHub;
 
-    @NotBlank@Email
-    private String newEmail;
-    @NotBlank
-    private String newFirstName;
-    @NotBlank
-    private String newLastName;
-    @NotBlank
-    private String newPhoneNumber;
-    @NotBlank
-    private String newGitHub;
+//    @NotBlank@Email
+//    private String newEmail;
+//    @NotBlank
+//    private String newFirstName;
+//    @NotBlank
+//    private String newLastName;
+//    @NotBlank
+//    private String newPhoneNumber;
+//    @NotBlank
+//    private String newGitHub;
 
 }

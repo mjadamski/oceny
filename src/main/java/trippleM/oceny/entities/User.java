@@ -23,7 +23,7 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private String phoneNummber;
+    private String phoneNumber;
     private String gitHub;
 
     //oceny punktowo
@@ -32,7 +32,7 @@ public class User {
     private int markThree;
     //oceny opisowo
     private String markOneDesc;
-    private String markTwooeDesc;
+    private String markTwoDesc;
     private String markThreeDesc;
     private Date added;
 

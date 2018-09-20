@@ -90,29 +90,28 @@
             <!--</p>-->
 
             <form method="post" th:action="@{/zmiana_danych}"  th:object="${changeDataForm}" >
-              <!--<p>-->
-                <!--<span th:text="${usersModel.email}"></span>-->
-              <!--<input type="text" method="get" th:field="${usersModel.email}" placeholder="nowy E-mail...">-->
-              <!--<input type="text" th:field="*{newEmail}" placeholder="nowy E-mail...">-->
-              <!--<span class="error" th:errors="*{newEmail}"></span></p>-->
-              <!--<input type="password" th:field="*{pass}" placeholder="Hasło...">-->
-              <!--<span class="error" th:errors="*{pass}"></span></br>-->
-              <!--<input type="password" th:field="*{passRepeat}" placeholder="Powtórz hasło...">-->
-              <!--<span class="error" th:errors="*{passRepeat}"></span></br>-->
               <p>
-                <span th:text="${loggedUser.firstName}"></span>
-              <!--<input type="text" method="get" th:field="${usersModel.firstName}" placeholder="Imię...">-->
-              <input type="text" th:field="*{firstName}" placeholder="Imię...">
-              <span class="error" th:errors="*{firstName}"></span></p>
-              <p th:text="${loggedUser.lastName}">
-              <input type="text" th:text="*{lastName}">
-                     <!--th:field="*{lastName}" placeholder="Nazwisko..."-->
-          </p>
-              <!--<span class="error" th:errors="*{lastName}"></span></br>-->
-              <!--<input type="text" th:field="*{gitHub}" placeholder="login GitHub">-->
-              <!--<span class="error" th:errors="*{gitHub}"></span></br>-->
-              <!--<input type="text" th:field="*{phoneNumber}" placeholder="Telefon kontaktowy">-->
-              <!--<span class="error" th:errors="*{phoneNumber}"></span></br>-->
+                <!--<span th:text="${loggedUser.email}"></span>-->
+                <input type="text" th:field="${loggedUser.email}" placeholder="nowy E-mail...">
+                <span class="error" th:errors="*{email}"></span>
+              </p>
+              <p>
+                <!--<span th:text="${loggedUser.firstName}"></span>-->
+                <input type="text"  th:field="${loggedUser.firstName}" placeholder="Imię...">
+                <span class="error" th:errors="*{firstName}"></span>
+              </p>
+              <p>
+                <input type="text" th:field="${loggedUser.lastName}">
+                <span class="error" th:errors="*{lastName}"></span>
+              </p>
+              <p>
+                <input type="text" th:field="${loggedUser.gitHub}" placeholder="login GitHub">
+                <span class="error" th:errors="*{gitHub}"></span>
+              </p>
+              <p>
+                <input type="text" th:field="${loggedUser.phoneNumber}" placeholder="Telefon kontaktowy">
+                <span class="error" th:errors="*{phoneNumber}"></span>
+              </p>
               <hr>
               <input type="submit" value="Aktualizuj">
             </form>

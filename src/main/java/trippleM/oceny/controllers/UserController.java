@@ -78,7 +78,7 @@ public class UserController {
         user.setAdded(new Date());
         user.setActive(Boolean.TRUE);
         user.setGitHub(registerForm.getGitHub());
-        user.setPhoneNummber(registerForm.getPhoneNumber());
+        user.setPhoneNumber(registerForm.getPhoneNumber());
 
         user.setPassword(bCryptPasswordEncoder.encode(registerForm.getPass()));
 
@@ -119,7 +119,15 @@ public class UserController {
 //        user.setActive(Boolean.TRUE);
 //        user.setGitHub(registerForm.getGitHub());
 //        user.setPhoneNummber(registerForm.getPhoneNumber());
+//        if (!changeDataForm.getFirstName().isEmpty()){
+//            loggedUser.setFirstName(changeDataForm.getFirstName());
+//        }
         loggedUser.setFirstName(changeDataForm.getFirstName());
+        loggedUser.setLastName(changeDataForm.getLastName());
+        loggedUser.setPhoneNumber(changeDataForm.getPhoneNumber());
+        loggedUser.setGitHub(changeDataForm.getGitHub());
+        loggedUser.setEmail(changeDataForm.getEmail());
+
         userRepository.save(loggedUser);
 //        userRepository.save(user);
         return "good_job";
