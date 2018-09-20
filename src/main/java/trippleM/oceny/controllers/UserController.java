@@ -95,7 +95,12 @@ public class UserController {
     public String marks(){ return "wpisywanie_ocen"; }
 
     @GetMapping("/zmiana_danych")
-    public String changePersonalData(){ return "zmiana_danych"; }
+    public String changePersonalData(Model model, Authentication auth) {
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
+        User loggedUser = userRepository.findOneByEmail(userDetails.getUsername());
+        model.addAttribute("usersModel", loggedUser);
+        return "zmiana_danych";
+    }
 
 //    @GetMapping("/logut")
 //    public String logout(){ return "logout"; }
@@ -109,7 +114,8 @@ public class UserController {
             User loggedUser = userRepository.findOneByEmail(userDetails.getUsername());
 //        List<User> users = userRepository.findAll();
             model.addAttribute("usersModel", loggedUser);
-        return "profil";}
+        return "profil";
+    }
 
 }
 

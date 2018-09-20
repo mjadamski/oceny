@@ -75,27 +75,31 @@
             <span th:text="${usersModel.firstName}"> Maeusz</span>
             <span th:text="${usersModel.lastName}"> May </span>
             </p>
-            <p>
-              Dane kontaktowe
+            <p><strong>
+              Dane kontaktowe</strong>
             </p>
-            <p class="text-faded mb-5">
-              adres e-mail
-            <span th:text="${usersModel.email}"> e-mail</span>
+            <p><strong>
+              adres e-mail: </strong>
+            <span th:text="${usersModel.email}" class="text-faded mb-5"> e-mail</span>
             </p>
-            <p>
-              nr telefonu
-            <span th:text="${usersModel.phoneNummber}"> 123456789</span>
+            <p><strong>
+              nr telefonu: </strong>
+            <span th:text="${usersModel.phoneNummber}" class="text-faded mb-5"> 123456789</span>
             </p>
-            <p>
-              konto GitHub:
-            <span th:text="${usersModel.gitHub}"> github</span>
+            <p><strong>
+              konto GitHub: </strong>
+              <span th:text="${usersModel.gitHub}" class="text-faded mb-5"> github</span>
+
             </p>
+            <hr>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/zmiana_danych">Zmień dane</a>
+            <hr>
 
               <table align="center" border="1">
                 <tr>
-                  <th>Pakiet</th>
-                  <th>Ocena punktowo</th>
-                  <th>Opis oceny</th>
+                  <th><p>Pakiet</p></th>
+                  <th><p>Ocena punktowo</p></th>
+                  <th><p>Opis oceny</p></th>
                 </tr>
                 <tr>
                   <td>Python</td>
@@ -113,8 +117,7 @@
                   <td th:text="${usersModel.markThreeDesc}">komentarz</td>
                 </tr>
               </table>
-            <hr>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="/zmiana_danych">Zmień dane</a>
+
           </div>
         </div>
       </div>

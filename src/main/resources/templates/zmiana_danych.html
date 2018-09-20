@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
 
   <head>
 
@@ -72,6 +72,46 @@
           </div>
           <div class="col-lg-8 mx-auto">
             <p class="text-faded mb-5">Wpisz nowe dane i zapisz</p>
+            <!--<p class="text-faded mb-5" th:text="${usersModel.firstName}"> Maeusz</span>-->
+            </p>
+            <p>
+              <span th:text="${usersModel.lastName}"> May </span>
+            </p>
+            <p>
+              <!--<span th:text="${usersModel.email}" class="text-faded mb-5"> e-mail</span>-->
+            <!--</p>-->
+            <!--<p><strong>-->
+              <!--nr telefonu: </strong>-->
+              <!--<span th:text="${usersModel.phoneNummber}" class="text-faded mb-5"> 123456789</span>-->
+            <!--</p>-->
+            <!--<p><strong>-->
+              <!--konto GitHub: </strong>-->
+              <!--<span th:text="${usersModel.gitHub}" class="text-faded mb-5"> github</span>-->
+            <!--</p>-->
+
+            <form method="post" th:action="@{/rejestracja}"  th:object="${registerForm}">
+              <p th:field="*{email}">
+              <input type="text" th:field="*{email}" placeholder="E-mail...">
+              <span class="error" th:errors="*{email}"></span></p>
+              <!--<input type="password" th:field="*{pass}" placeholder="Hasło...">-->
+              <!--<span class="error" th:errors="*{pass}"></span></br>-->
+              <!--<input type="password" th:field="*{passRepeat}" placeholder="Powtórz hasło...">-->
+              <!--<span class="error" th:errors="*{passRepeat}"></span></br>-->
+              <!--<input type="text" th:field="*{firstName}" placeholder="Imię...">-->
+              <!--<span class="error" th:errors="*{firstName}"></span></br>-->
+              <p th:text="${usersModel.lastName}">
+              <input type="text" th:text="${usersModel.lastName}">
+                     <!--th:field="*{lastName}" placeholder="Nazwisko..."-->
+          </p>
+              <!--<span class="error" th:errors="*{lastName}"></span></br>-->
+              <!--<input type="text" th:field="*{gitHub}" placeholder="login GitHub">-->
+              <!--<span class="error" th:errors="*{gitHub}"></span></br>-->
+              <!--<input type="text" th:field="*{phoneNumber}" placeholder="Telefon kontaktowy">-->
+              <!--<span class="error" th:errors="*{phoneNumber}"></span></br>-->
+              <hr>
+              <input type="submit" value="Zarejestruj">
+            </form>
+            <hr>
             <!--<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
           </div>
         </div>
