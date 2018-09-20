@@ -71,36 +71,50 @@
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Wpisz nowe dane i zapisz</p>
 
-            <form method="post" th:action="@{/zmiana_danych}"  th:object="${changeDataForm}" >
-              <p>
-                <!--<span th:text="${loggedUser.email}"></span>-->
-                <input type="text" th:field="${loggedUser.email}" placeholder="nowy E-mail...">
-                <span class="error" th:errors="*{email}"></span>
-              </p>
-              <p>
-                <!--<span th:text="${loggedUser.firstName}"></span>-->
-                <input type="text"  th:field="${loggedUser.firstName}" placeholder="Imię...">
-                <span class="error" th:errors="*{firstName}"></span>
-              </p>
-              <p>
-                <input type="text" th:field="${loggedUser.lastName}">
-                <span class="error" th:errors="*{lastName}"></span>
-              </p>
-              <p>
-                <input type="text" th:field="${loggedUser.gitHub}" placeholder="login GitHub">
-                <span class="error" th:errors="*{gitHub}"></span>
-              </p>
-              <p>
-                <input type="text" th:field="${loggedUser.phoneNumber}" placeholder="Telefon kontaktowy">
-                <span class="error" th:errors="*{phoneNumber}"></span>
-              </p>
-              <hr>
-              <input type="submit" value="Aktualizuj">
-            </form>
-            <hr>
-            <!--<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->
+
+
+            <!--<form method="post" th:action="@{/zmiana_hasla}"  th:object="${registerForm}" >-->
+                <!--&lt;!&ndash;<p class="text-faded mb-5">Wpisz Stare hasło</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input type="password" th:field="${loggedUser.email}" placeholder="nowy E-mail...">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="error" th:errors="*{email}"></span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                <!--<p class="text-faded mb-5">Wpisz Nowe hasło</p>-->
+                <!--<p>-->
+                    <!--<input type="password"  th:field="*{pass}" placeholder="nowe haslo">-->
+                    <!--<span class="error" th:errors="*{pass}"></span>-->
+                <!--</p>-->
+                <!--<p class="text-faded mb-5">Powtórz Nowe hasło</p>-->
+                <!--<p>-->
+                    <!--<input type="password" th:field="*{passRepeat}" placeholder="powtórzone haslo">-->
+                    <!--<span class="error" th:errors="*{passRepeat}"></span>-->
+                <!--</p>-->
+                <!--<hr>-->
+                <!--<input type="submit" value="Aktualizuj">-->
+            <!--</form>-->
+
+              <form method="post" th:action="@{/zmiana_hasla}"  th:object="${changePasswordForm}" >
+                  <!--<p class="text-faded mb-5">Wpisz Stare hasło</p>-->
+                  <!--<p>-->
+                  <!--<input type="password" th:field="${loggedUser.email}" placeholder="nowy E-mail...">-->
+                  <!--<span class="error" th:errors="*{email}"></span>-->
+                  <!--</p>-->
+                  <p class="text-faded mb-5">Wpisz Nowe hasło</p>
+                  <p>
+                      <input type="password" th:field="*{newPass}" placeholder="nowe haslo">
+                      <span class="error" th:errors="*{newPass}"></span>
+                  </p>
+                  <p class="text-faded mb-5">Powtórz Nowe hasło</p>
+                  <p>
+                      <input type="password" th:field="*{newPassRepeat}" placeholder="powtórzone haslo">
+                      <span class="error" th:errors="*{newPassRepeat}"></span>
+                  </p>
+                  <hr>
+                  <a class="btn btn-primary btn-xl js-scroll-trigger" href="/.">Powrót</a>
+                  <input type="submit" value="Aktualizuj">
+              </form>
+
           </div>
         </div>
       </div>

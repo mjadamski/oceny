@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import trippleM.oceny.entities.User;
 import trippleM.oceny.forms.ChangeDataForm;
+import trippleM.oceny.forms.ChangePasswordForm;
 import trippleM.oceny.forms.RegisterForm;
 import trippleM.oceny.repositories.UserRepo;
 
@@ -52,12 +53,10 @@ public class UserController {
             bindingResult.rejectValue("passRepeat", "123",
                     "Hasła muszą być takie same");
         }
-//        if(!registerForm.getEmail().contains("@")){
-//            model.addAttribute("emailError", "Błędny email");
-//        }
-        System.out.println(registerForm);
-        System.out.println(bindingResult.toString());
-        System.out.println(registerForm.getPass());
+
+//        System.out.println(registerForm);
+//        System.out.println(bindingResult.toString());
+//        System.out.println(registerForm.getPass());
 
         List<User> allByEmail = userRepository.findAllByEmail(registerForm.getEmail());
         if(!allByEmail.isEmpty()){
@@ -84,17 +83,16 @@ public class UserController {
 
         userRepository.save(user);
         return "good_job";
-//        return "redirect:/";
     }
 
     @GetMapping("/logowanie")
     public String loginForm(){ return "logowanie"; }
 
-    @GetMapping("/panel_administratora")
-    public String adminPanel(){ return "admin_panel"; }
-
-    @GetMapping("/oceny")
-    public String marks(){ return "wpisywanie_ocen"; }
+//    @GetMapping("/panel_administratora")
+//    public String adminPanel(){ return "admin_panel"; }
+//
+//    @GetMapping("/oceny")
+//    public String marks(){ return "wpisywanie_ocen"; }
 
     @GetMapping("/zmiana_danych")
     public String updatePersonalData(Model model, Authentication auth, ChangeDataForm changeDataForm){
@@ -111,25 +109,16 @@ public class UserController {
         User loggedUser = userRepository.findOneByEmail(userDetails.getUsername());
         model.addAttribute("loggedUser", loggedUser);
 
-//        User user = new User();
-//        user.setEmail(registerForm.getEmail());
-//        user.setFirstName(changeDataForm.getFirstName());
-//        user.setLastName(registerForm.getLastName());
-//        user.setAdded(new Date());
-//        user.setActive(Boolean.TRUE);
-//        user.setGitHub(registerForm.getGitHub());
-//        user.setPhoneNummber(registerForm.getPhoneNumber());
-//        if (!changeDataForm.getFirstName().isEmpty()){
-//            loggedUser.setFirstName(changeDataForm.getFirstName());
-//        }
+//        if(!userDetails.getUsername().isEmpty())
+
         loggedUser.setFirstName(changeDataForm.getFirstName());
         loggedUser.setLastName(changeDataForm.getLastName());
         loggedUser.setPhoneNumber(changeDataForm.getPhoneNumber());
         loggedUser.setGitHub(changeDataForm.getGitHub());
         loggedUser.setEmail(changeDataForm.getEmail());
 
+
         userRepository.save(loggedUser);
-//        userRepository.save(user);
         return "good_job";
     }
 
@@ -143,10 +132,67 @@ public class UserController {
     public String profilFill(Model model, Authentication auth) {
             UserDetails userDetails = (UserDetails) auth.getPrincipal();
             User loggedUser = userRepository.findOneByEmail(userDetails.getUsername());
-//        List<User> users = userRepository.findAll();
             model.addAttribute("usersModel", loggedUser);
         return "profil";
     }
+
+    @GetMapping("/zmiana_hasla")
+    public String changePassword(){ return "zmiana_hasla"; }
+
+    @PostMapping("/zmiana_hasla")
+    public String changePasswordAction(
+            @ModelAttribute @Valid ChangePasswordForm changePasswordForm,
+            BindingResult bindingResult){
+
+        if(changePasswordForm.getPass() == null
+                || !changePasswordForm.getNewPass().equals(changePasswordForm.getNewPassRepeat())){
+            bindingResult.rejectValue("pass", "123",
+                    "Hasła muszą być takie same");
+            bindingResult.rejectValue("passRepeat", "123",
+                    "Hasła muszą być takie same");
+        }
+
+        if(bindingResult.hasErrors()){
+            return "zmiana_hasla";
+        }
+
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+
+        User user = new User();
+        user.setPassword(bCryptPasswordEncoder.encode(changePasswordForm.getNewPass()));
+
+
+        userRepository.save(user);
+
+        return "good_job";
+    }
+
+//        @RequestMapping("/zmiana_hasla")
+//        public String changePasswordAction(
+//                @ModelAttribute @Valid RegisterForm registerForm,
+//                BindingResult bindingResult,
+//                Model model){
+//
+//            if(registerForm.getPass() == null
+//                    || !registerForm.getPass().equals(registerForm.getPassRepeat())){
+//                bindingResult.rejectValue("pass", "123",
+//                        "Hasła muszą być takie same");
+//                bindingResult.rejectValue("passRepeat", "123",
+//                        "Hasła muszą być takie same");
+//            }
+//
+//            if(bindingResult.hasErrors()){
+//                return "zmiana_hasla";
+//            }
+//
+//            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+//
+//            User user = new User();
+//            user.setPassword(bCryptPasswordEncoder.encode(registerForm.getPass()));
+//
+//            userRepository.save(user);
+//            return "good_job";
+//        }
 
 }
 

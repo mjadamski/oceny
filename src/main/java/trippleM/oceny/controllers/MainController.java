@@ -1,5 +1,7 @@
 package trippleM.oceny.controllers;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 public class MainController {
 
     @RequestMapping("/")
-    public String main(){
-        return "index";
-    }
+    public String main(){ return "index"; }
 
 //    @RequestMapping("/rejestracja")
 //    public String rejestracja(){
