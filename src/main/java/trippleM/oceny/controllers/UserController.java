@@ -119,7 +119,7 @@ public class UserController {
 //        user.setActive(Boolean.TRUE);
 //        user.setGitHub(registerForm.getGitHub());
 //        user.setPhoneNummber(registerForm.getPhoneNumber());
-        loggedUser.setFirstName(changeDataForm.getNewFirstName());
+        loggedUser.setFirstName(changeDataForm.getFirstName());
         userRepository.save(loggedUser);
 //        userRepository.save(user);
         return "good_job";
