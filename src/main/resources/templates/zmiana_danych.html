@@ -74,10 +74,10 @@
             <p class="text-faded mb-5">Wpisz nowe dane i zapisz</p>
             <!--<p class="text-faded mb-5" th:text="${usersModel.firstName}"> Maeusz</span>-->
             </p>
-            <p>
-              <span th:text="${usersModel.lastName}"> May </span>
-            </p>
-            <p>
+            <!--<p>-->
+              <!--<span th:text="${usersModel.lastName}"> May </span>-->
+            <!--</p>-->
+            <!--<p>-->
               <!--<span th:text="${usersModel.email}" class="text-faded mb-5"> e-mail</span>-->
             <!--</p>-->
             <!--<p><strong>-->
@@ -89,18 +89,23 @@
               <!--<span th:text="${usersModel.gitHub}" class="text-faded mb-5"> github</span>-->
             <!--</p>-->
 
-            <form method="post" th:action="@{/rejestracja}"  th:object="${registerForm}">
-              <p th:field="*{email}">
-              <input type="text" th:field="*{email}" placeholder="E-mail...">
-              <span class="error" th:errors="*{email}"></span></p>
+            <form method="post" th:action="@{/zmiana_danych}"  th:object="${changeDataForm}" >
+              <!--<p>-->
+                <!--<span th:text="${usersModel.email}"></span>-->
+              <!--<input type="text" method="get" th:field="${usersModel.email}" placeholder="nowy E-mail...">-->
+              <!--<input type="text" th:field="*{newEmail}" placeholder="nowy E-mail...">-->
+              <!--<span class="error" th:errors="*{newEmail}"></span></p>-->
               <!--<input type="password" th:field="*{pass}" placeholder="Hasło...">-->
               <!--<span class="error" th:errors="*{pass}"></span></br>-->
               <!--<input type="password" th:field="*{passRepeat}" placeholder="Powtórz hasło...">-->
               <!--<span class="error" th:errors="*{passRepeat}"></span></br>-->
-              <!--<input type="text" th:field="*{firstName}" placeholder="Imię...">-->
-              <!--<span class="error" th:errors="*{firstName}"></span></br>-->
-              <p th:text="${usersModel.lastName}">
-              <input type="text" th:text="${usersModel.lastName}">
+              <p>
+                <span th:text="${loggedUser.firstName}"></span>
+              <!--<input type="text" method="get" th:field="${usersModel.firstName}" placeholder="Imię...">-->
+              <input type="text" th:field="*{firstName}" placeholder="Imię...">
+              <span class="error" th:errors="*{firstName}"></span></p>
+              <p th:text="${loggedUser.lastName}">
+              <input type="text" th:text="*{lastName}">
                      <!--th:field="*{lastName}" placeholder="Nazwisko..."-->
           </p>
               <!--<span class="error" th:errors="*{lastName}"></span></br>-->
@@ -109,7 +114,7 @@
               <!--<input type="text" th:field="*{phoneNumber}" placeholder="Telefon kontaktowy">-->
               <!--<span class="error" th:errors="*{phoneNumber}"></span></br>-->
               <hr>
-              <input type="submit" value="Zarejestruj">
+              <input type="submit" value="Aktualizuj">
             </form>
             <hr>
             <!--<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>-->

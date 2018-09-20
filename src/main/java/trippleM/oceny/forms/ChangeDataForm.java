@@ -16,11 +16,22 @@ public class ChangeDataForm {
     private String email;
     @NotBlank@NotEmpty
     private String firstName;
-//    @Size(min = 5, max = 10, message = "Nazwisko musi mieć od {min} do {max} znaków.")
     @NotBlank@NotEmpty
     private String lastName;
     @NotBlank@NotEmpty
     private String phoneNumber;
     @NotBlank@NotEmpty
     private String gitHub;
+
+    @NotBlank@Email
+    private String newEmail;
+    @NotBlank
+    private String newFirstName;
+    @NotBlank
+    private String newLastName;
+    @NotBlank
+    private String newPhoneNumber;
+    @NotBlank
+    private String newGitHub;
+
 }

@@ -1,6 +1,7 @@
 package trippleM.oceny.controllers;
 
 //import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import trippleM.oceny.entities.User;
+import trippleM.oceny.forms.ChangeDataForm;
 import trippleM.oceny.forms.RegisterForm;
 import trippleM.oceny.repositories.UserRepo;
 
@@ -95,11 +97,32 @@ public class UserController {
     public String marks(){ return "wpisywanie_ocen"; }
 
     @GetMapping("/zmiana_danych")
-    public String changePersonalData(Model model, Authentication auth) {
+    public String updatePersonalData(Model model, Authentication auth, ChangeDataForm changeDataForm){
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
         User loggedUser = userRepository.findOneByEmail(userDetails.getUsername());
-        model.addAttribute("usersModel", loggedUser);
-        return "zmiana_danych";
+        model.addAttribute("loggedUser", loggedUser);
+        model.addAttribute("changeDataForm", changeDataForm);
+        return "/zmiana_danych";
+    }
+
+    @PostMapping("/zmiana_danych")
+    public String updatePersonalDataAction(Model model, Authentication auth, ChangeDataForm changeDataForm) {
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
+        User loggedUser = userRepository.findOneByEmail(userDetails.getUsername());
+        model.addAttribute("loggedUser", loggedUser);
+
+//        User user = new User();
+//        user.setEmail(registerForm.getEmail());
+//        user.setFirstName(changeDataForm.getFirstName());
+//        user.setLastName(registerForm.getLastName());
+//        user.setAdded(new Date());
+//        user.setActive(Boolean.TRUE);
+//        user.setGitHub(registerForm.getGitHub());
+//        user.setPhoneNummber(registerForm.getPhoneNumber());
+        loggedUser.setFirstName(changeDataForm.getNewFirstName());
+        userRepository.save(loggedUser);
+//        userRepository.save(user);
+        return "good_job";
     }
 
 //    @GetMapping("/logut")
